@@ -3,7 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+if (sessionStorage.getItem("adrian-site-auth") !== "true") {
+  location.replace("password.html?redirect=people.html");
+}
+</script>
 <title>People — Adrian</title>
+<link rel="icon" href="public/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -25,9 +31,9 @@
 
   <section class="work-index" aria-label="Selected people work">
     <ul class="work-list">
-      <li class="work-item"><a href="/people/aigaspotlight"><span class="work-index-number">01</span><span class="work-index-title">AIGA Mentor Spotlight</span><span class="work-index-arrow" aria-hidden="true">&rarr;</span></a></li>
-      <li class="work-item"><a href="/people/masterclass"><span class="work-index-number">02</span><span class="work-index-title">Wunderman Thompson: MasterClass</span><span class="work-index-arrow" aria-hidden="true">&rarr;</span></a></li>
-      <li class="work-item"><a href="/people/ibop"><span class="work-index-number">03</span><span class="work-index-title">Critical Mass: Inspired by our people</span><span class="work-index-arrow" aria-hidden="true">&rarr;</span></a></li>
+      <li class="work-item work-item-disabled"><span aria-disabled="true"><span class="work-index-number">01</span><span class="work-index-title">AIGA Mentor Spotlight</span><span class="work-index-coming-soon">Coming Soon</span></span></li>
+      <li class="work-item work-item-disabled"><span aria-disabled="true"><span class="work-index-number">02</span><span class="work-index-title">Wunderman Thompson: MasterClass</span><span class="work-index-coming-soon">Coming Soon</span></span></li>
+      <li class="work-item work-item-disabled"><span aria-disabled="true"><span class="work-index-number">03</span><span class="work-index-title">Critical Mass: Inspired by our people</span><span class="work-index-coming-soon">Coming Soon</span></span></li>
     </ul>
   </section>
 

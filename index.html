@@ -3,7 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+if (sessionStorage.getItem("adrian-site-auth") !== "true") {
+  location.replace("password.html?redirect=index.html");
+}
+</script>
 <title>— Adrian</title>
+<link rel="icon" href="public/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -34,7 +40,7 @@
       <li class="work-item"><a href="work/vippackage.html"><span class="work-index-number">02</span><span class="work-index-title">Manscaped VIP Package</span><span class="work-index-arrow" aria-hidden="true">&rarr;</span></a></li>
       <li class="work-item"><a href="work/dbrewards.html"><span class="work-index-number">03</span><span class="work-index-title">D&amp;B Play Rewards</span><span class="work-index-arrow" aria-hidden="true">&rarr;</span></a></li>
       <li class="work-item"><a href="work/nyl.html"><span class="work-index-number">04</span><span class="work-index-title">New York Liberty</span><span class="work-index-arrow" aria-hidden="true">&rarr;</span></a></li>
-      <li class="work-item"><a href="/work/brookyln"><span class="work-index-number">05</span><span class="work-index-title">Brooklyn Nets Visioning</span><span class="work-index-arrow" aria-hidden="true">&rarr;</span></a></li>
+      <li class="work-item"><a href="work/brookyln.html"><span class="work-index-number">05</span><span class="work-index-title">Brooklyn Nets Visioning</span><span class="work-index-arrow" aria-hidden="true">&rarr;</span></a></li>
       <li class="work-item"><a href="work/usga.html"><span class="work-index-number">06</span><span class="work-index-title">USGA Unified Championship App</span><span class="work-index-arrow" aria-hidden="true">&rarr;</span></a></li>
     </ul>
   </section>
