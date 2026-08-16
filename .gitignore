@@ -1,0 +1,10 @@
+.DS_Store
+.hallmark/
+
+# Raw scraped source material used only as reference/copy source —
+# not part of the deployed site (processed assets live under public/)
+/DnB/
+/Manscaped/
+/NYL/
+/bknets/
+/usga/

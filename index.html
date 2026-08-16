@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>— Adrian</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="site-title" href="/"><img src="public/logo.svg" alt="— Adrian" width="66" height="27"></a>
+  <nav class="primary-nav" aria-label="Primary">
+    <a href="index.html" class="nav-link is-active">Work</a>
+    <a href="people.html" class="nav-link">People</a>
+    <a href="about.html" class="nav-link">About</a>
+  </nav>
+</header>
+
+<main class="site-page">
+
+  <section class="hero">
+    <h1 class="hero-description">I lead and design<br>for digital.</h1>
+  </section>
+
+  <div class="tab-switch" role="tablist" aria-label="Work category">
+    <button type="button" class="tab-btn is-active" id="tab-classic" role="tab" aria-selected="true" aria-controls="panel-classic" data-tab="classic">Classic</button>
+    <button type="button" class="tab-btn" id="tab-vibey" role="tab" aria-selected="false" aria-controls="panel-vibey" data-tab="vibey" tabindex="-1">Vibe Coded</button>
+  </div>
+
+  <section class="work-index" id="panel-classic" role="tabpanel" aria-labelledby="tab-classic" aria-label="Classic work">
+    <ul class="work-list">
+      <li class="work-item work-item-disabled"><span aria-disabled="true"><span class="work-index-number">01</span><span class="work-index-title">Taco Bell</span><span class="work-index-coming-soon">Coming Soon</span></span></li>
+      <li class="work-item"><a href="work/vippackage.html"><span class="work-index-number">02</span><span class="work-index-title">Manscaped VIP Package</span><span class="work-index-arrow" aria-hidden="true">&rarr;</span></a></li>
+      <li class="work-item"><a href="work/dbrewards.html"><span class="work-index-number">03</span><span class="work-index-title">D&amp;B Play Rewards</span><span class="work-index-arrow" aria-hidden="true">&rarr;</span></a></li>
+      <li class="work-item"><a href="work/nyl.html"><span class="work-index-number">04</span><span class="work-index-title">New York Liberty</span><span class="work-index-arrow" aria-hidden="true">&rarr;</span></a></li>
+      <li class="work-item"><a href="/work/brookyln"><span class="work-index-number">05</span><span class="work-index-title">Brooklyn Nets Visioning</span><span class="work-index-arrow" aria-hidden="true">&rarr;</span></a></li>
+      <li class="work-item"><a href="work/usga.html"><span class="work-index-number">06</span><span class="work-index-title">USGA Unified Championship App</span><span class="work-index-arrow" aria-hidden="true">&rarr;</span></a></li>
+    </ul>
+  </section>
+
+  <section class="work-index" id="panel-vibey" role="tabpanel" aria-labelledby="tab-vibey" aria-label="Vibey work" hidden>
+    <ul class="work-list">
+      <li class="work-item"><a href="work/we-vibin.html"><span class="work-index-number">01</span><span class="work-index-title">We Vibin&rsquo;</span><span class="work-index-arrow" aria-hidden="true">&rarr;</span></a></li>
+      <li class="work-item"><a href="work/vibey.html"><span class="work-index-number">02</span><span class="work-index-title">Vibey</span><span class="work-index-arrow" aria-hidden="true">&rarr;</span></a></li>
+      <li class="work-item"><a href="work/oh-snap-hat-builder.html"><span class="work-index-number">03</span><span class="work-index-title">Oh Snap Hat Builder</span><span class="work-index-arrow" aria-hidden="true">&rarr;</span></a></li>
+      <li class="work-item work-item-disabled"><span aria-disabled="true"><span class="work-index-number">04</span><span class="work-index-title">Skill Build Methodology</span><span class="work-index-coming-soon">Coming Soon</span></span></li>
+    </ul>
+  </section>
+
+</main>
+
+<script>
+(function () {
+  var tabs = document.querySelectorAll(".tab-btn");
+  var panels = { classic: document.getElementById("panel-classic"), vibey: document.getElementById("panel-vibey") };
+
+  function activateTab(target) {
+    tabs.forEach(function (t) {
+      var isTarget = t.getAttribute("data-tab") === target;
+      t.classList.toggle("is-active", isTarget);
+      t.setAttribute("aria-selected", isTarget ? "true" : "false");
+      t.setAttribute("tabindex", isTarget ? "0" : "-1");
+    });
+    Object.keys(panels).forEach(function (key) {
+      panels[key].hidden = key !== target;
+    });
+  }
+
+  tabs.forEach(function (tab) {
+    tab.addEventListener("click", function () {
+      activateTab(tab.getAttribute("data-tab"));
+    });
+  });
+
+  if (window.location.hash === "#vibe-coded") {
+    activateTab("vibey");
+  }
+})();
+</script>
+
+<footer class="site-footer">
+  <span class="site-title">
+    <img src="public/adriansito-portrait.png" alt="— Adrian" width="1254" height="1254">
+    <span class="footer-identity">
+      <span class="footer-name">Adrian Aguilar</span>
+      <span class="footer-location">Los Angeles</span>
+      <span class="footer-status"><span class="footer-status-dot" aria-hidden="true"></span>Currently playing tennis</span>
+    </span>
+  </span>
+  <nav class="footer-nav" aria-label="Footer">
+    <a href="#top" class="back-to-top">Back to top</a>
+  </nav>
+</footer>
+
+</body>
+</html>
