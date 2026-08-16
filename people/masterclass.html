@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+if (sessionStorage.getItem("adrian-site-auth") !== "true") {
+  location.replace("../password.html?redirect=people/masterclass.html");
+}
+</script>
+<title>Wunderman Thompson: MasterClass — Adrian</title>
+<link rel="icon" href="../public/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="site-title" href="../index.html"><img src="../public/logo.svg" alt="— Adrian" width="66" height="27"></a>
+  <nav class="primary-nav" aria-label="Primary">
+    <a href="../index.html" class="nav-link">Work</a>
+    <a href="../people.html" class="nav-link is-active">People</a>
+    <a href="../about.html" class="nav-link">About</a>
+  </nav>
+</header>
+
+<main class="site-page case-study">
+
+  <section class="hero case-hero">
+    <p class="section-label"><a class="breadcrumb-link" href="../people.html">&larr; People</a></p>
+    <h1 class="hero-description">Wunderman Thompson: MasterClass</h1>
+  </section>
+
+  <section class="case-overview">
+    <div class="case-overview-text">
+      <h2 class="case-heading">Overview</h2>
+
+      <div class="case-block">
+        <p class="case-block-label">Goal</p>
+        <p>I joined Wunderman Thompson in the middle of a remote-only world and noticed an opportunity to help new and existing team members get together to meet each other. At the same time, the XD team was still new to the agency and needed more visibility as leaders in cultural and digital initiatives.</p>
+      </div>
+
+      <div class="case-block">
+        <p class="case-block-label">Solution</p>
+        <p>We streamed MasterClass courses bi-monthly and had the sessions hosted by the XD team &mdash; turning a passive subscription perk into a live, shared experience the whole agency could join, learn from, and talk about together.</p>
+      </div>
+    </div>
+
+    <div class="case-divider" aria-hidden="true"></div>
+
+    <aside class="case-credits">
+      <div class="case-credit">
+        <p class="case-credit-role">Role</p>
+        <p class="case-credit-name">Creative Director &amp; Designer</p>
+      </div>
+      <div class="case-credit">
+        <p class="case-credit-role">Agency</p>
+        <p class="case-credit-name">Wunderman Thompson</p>
+      </div>
+    </aside>
+  </section>
+
+  <section class="case-demo-section">
+    <p class="section-label">Preview</p>
+    <div class="case-demo-frame">
+      <img class="case-demo-media" src="../public/wt/hero.jpg" alt="MasterClass hosted by XD, featuring Issa Rae" width="2500" height="1406" loading="lazy">
+    </div>
+  </section>
+
+  <section class="case-demo-section">
+    <div class="case-carousel" data-carousel>
+      <div class="case-carousel-frame">
+        <ul class="case-carousel-track" data-carousel-track>
+          <li class="case-carousel-slide"><img src="../public/wt/hosts.jpg" alt="MasterClass bi-monthly hosts — RuPaul, Ron Finley, and Issa Rae" width="2500" height="1412" loading="lazy"></li>
+          <li class="case-carousel-slide"><img src="../public/wt/live-session.jpg" alt="Internal team announcement post and a live MasterClass session with Issa Rae" width="2500" height="1459" loading="lazy"></li>
+          <li class="case-carousel-slide"><img src="../public/wt/culture-benefit.png" alt="The WT Culture Benefit — building culture through the things we do together" width="2316" height="1294" loading="lazy"></li>
+        </ul>
+      </div>
+      <div class="case-carousel-controls">
+        <button type="button" class="case-carousel-btn" data-carousel-prev aria-label="Previous slide">&larr;</button>
+        <div class="case-carousel-dots" data-carousel-dots></div>
+        <button type="button" class="case-carousel-btn" data-carousel-next aria-label="Next slide">&rarr;</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-impact">
+    <h2 class="case-heading">Impact</h2>
+    <p>Building culture through the things we do together: the initiative gave teammates a break from the day-to-day while inspiring us as creatives and professionals &mdash; and raised the XD team&rsquo;s visibility as cultural leaders at the agency.</p>
+  </section>
+
+  <section class="case-back">
+    <a class="btn-brutal" href="../people.html">&larr; Back to People</a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <span class="site-title">
+    <img src="../public/adriansito-portrait.png" alt="— Adrian" width="1254" height="1254">
+    <span class="footer-identity">
+      <span class="footer-name">Adrian Aguilar</span>
+      <span class="footer-location">Los Angeles</span>
+      <span class="footer-status"><span class="footer-status-dot" aria-hidden="true"></span>Currently playing tennis</span>
+    </span>
+  </span>
+  <nav class="footer-nav" aria-label="Footer">
+    <a href="#top" class="back-to-top">Back to top</a>
+  </nav>
+</footer>
+
+<script>
+(function () {
+  var root = document.querySelector("[data-carousel]");
+  if (!root) return;
+  var track = root.querySelector("[data-carousel-track]");
+  var slides = root.querySelectorAll(".case-carousel-slide");
+  var prevBtn = root.querySelector("[data-carousel-prev]");
+  var nextBtn = root.querySelector("[data-carousel-next]");
+  var dotsWrap = root.querySelector("[data-carousel-dots]");
+  var index = 0;
+
+  slides.forEach(function (_, i) {
+    var dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "case-carousel-dot";
+    dot.setAttribute("aria-label", "Go to slide " + (i + 1));
+    dot.addEventListener("click", function () { goTo(i); });
+    dotsWrap.appendChild(dot);
+  });
+  var dots = dotsWrap.querySelectorAll(".case-carousel-dot");
+
+  track.style.width = (slides.length * 100) + "%";
+  slides.forEach(function (slide) {
+    slide.style.width = (100 / slides.length) + "%";
+  });
+
+  function update() {
+    track.style.transform = "translateX(-" + (index * (100 / slides.length)) + "%)";
+    dots.forEach(function (d, i) {
+      d.classList.toggle("is-active", i === index);
+    });
+  }
+
+  function goTo(i) {
+    index = (i + slides.length) % slides.length;
+    update();
+  }
+
+  prevBtn.addEventListener("click", function () { goTo(index - 1); });
+  nextBtn.addEventListener("click", function () { goTo(index + 1); });
+
+  update();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+if (sessionStorage.getItem("adrian-site-auth") !== "true") {
+  location.replace("../password.html?redirect=work/tacobell.html");
+}
+</script>
+<title>Taco Bell — Adrian</title>
+<link rel="icon" href="../public/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="site-title" href="../index.html"><img src="../public/logo.svg" alt="— Adrian" width="66" height="27"></a>
+  <nav class="primary-nav" aria-label="Primary">
+    <a href="../index.html" class="nav-link is-active">Work</a>
+    <a href="../people.html" class="nav-link">People</a>
+    <a href="../about.html" class="nav-link">About</a>
+  </nav>
+</header>
+
+<main class="site-page case-study">
+
+  <section class="hero case-hero">
+    <p class="section-label"><a class="breadcrumb-link" href="../index.html">&larr; Work</a> / Classic</p>
+    <h1 class="hero-description">Taco Bell</h1>
+  </section>
+
+  <section class="case-overview">
+    <div class="case-overview-text">
+      <h2 class="case-heading">Overview</h2>
+
+      <div class="case-block">
+        <p class="case-block-label">Goal</p>
+        <p>Taco Bell wanted to build an unconventional app that stands apart in the QSR industry &mdash; one that serves frictionless, personalized purchase experiences while also delivering qualitative value through cultural relevance, relentless innovation, authentic care, and fun. It&rsquo;s the best expression of their one-of-a-kind loyalty program, amplifying value and unlocking m&aacute;s fire for Taco Bell&rsquo;s loyal fans.</p>
+      </div>
+
+      <div class="case-block">
+        <p class="case-block-label">Solution</p>
+        <p>The vision was one app, not three: we unified ordering, rewards, and account management into a single experience, with a menu tailored to you and an ordering flow built to feel like &ldquo;the cultural rebel, in every interaction.&rdquo; We got there through 25+ client participants across open discussions and hands-on design workshops focused on brand expression.</p>
+      </div>
+    </div>
+
+    <div class="case-divider" aria-hidden="true"></div>
+
+    <aside class="case-credits">
+      <div class="case-credit">
+        <p class="case-credit-role">Role</p>
+        <p class="case-credit-name">Associate Creative Director</p>
+      </div>
+      <div class="case-credit">
+        <p class="case-credit-role">Creative Directors</p>
+        <p class="case-credit-name">Pete Pona, Shaun Morrison</p>
+      </div>
+      <div class="case-credit">
+        <p class="case-credit-role">Design Leads</p>
+        <p class="case-credit-name">Ellis Santandrea, Melissa Trout, Elliot Yamashiro, Julio Aceituno</p>
+      </div>
+      <div class="case-credit">
+        <p class="case-credit-role">Agency</p>
+        <p class="case-credit-name">Deloitte Digital</p>
+      </div>
+    </aside>
+  </section>
+
+  <section class="case-demo-section">
+    <p class="section-label">Preview</p>
+    <div class="case-carousel" data-carousel>
+      <div class="case-carousel-frame">
+        <ul class="case-carousel-track" data-carousel-track>
+          <li class="case-carousel-slide"><img src="../public/tb/hero.png" alt="Taco Bell app — location, menu, my mods, and notification screens" width="1920" height="1080" loading="lazy"></li>
+          <li class="case-carousel-slide"><img src="../public/tb/discovery.png" alt="Discovery: Brand Alignment — Taco Bell wanted an unconventional app that stands apart in the QSR industry" width="1920" height="1080" loading="lazy"></li>
+          <li class="case-carousel-slide"><img src="../public/tb/vision.png" alt="The Vision: One App, Not Three" width="1920" height="1080" loading="lazy"></li>
+          <li class="case-carousel-slide"><img src="../public/tb/menu-ux.png" alt="UX Improvements: Your Menu, Tailored to You" width="1920" height="1080" loading="lazy"></li>
+          <li class="case-carousel-slide"><img src="../public/tb/ordering-ux.png" alt="UX Improvements: Ordering, Unchained" width="1920" height="1080" loading="lazy"></li>
+          <li class="case-carousel-slide"><img src="../public/tb/cultural-rebel.png" alt="The Cultural Rebel, in Every Interaction" width="1920" height="1080" loading="lazy"></li>
+        </ul>
+      </div>
+      <div class="case-carousel-controls">
+        <button type="button" class="case-carousel-btn" data-carousel-prev aria-label="Previous slide">&larr;</button>
+        <div class="case-carousel-dots" data-carousel-dots></div>
+        <button type="button" class="case-carousel-btn" data-carousel-next aria-label="Next slide">&rarr;</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-impact">
+    <h2 class="case-heading">Impact</h2>
+    <p>The redesigned loyalty program was covered by <a class="text-link" href="https://www.nrn.com/quick-service/taco-bell-has-redesigned-its-loyalty-program" target="_blank" rel="noopener">Nation&rsquo;s Restaurant News</a>, spotlighting Taco Bell&rsquo;s approach to unifying its ordering and rewards experience.</p>
+  </section>
+
+  <section class="case-back">
+    <a class="btn-brutal" href="../index.html">&larr; Back to Work</a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <span class="site-title">
+    <img src="../public/adriansito-portrait.png" alt="— Adrian" width="1254" height="1254">
+    <span class="footer-identity">
+      <span class="footer-name">Adrian Aguilar</span>
+      <span class="footer-location">Los Angeles</span>
+      <span class="footer-status"><span class="footer-status-dot" aria-hidden="true"></span>Currently playing tennis</span>
+    </span>
+  </span>
+  <nav class="footer-nav" aria-label="Footer">
+    <a href="#top" class="back-to-top">Back to top</a>
+  </nav>
+</footer>
+
+<script>
+(function () {
+  var root = document.querySelector("[data-carousel]");
+  if (!root) return;
+  var track = root.querySelector("[data-carousel-track]");
+  var slides = root.querySelectorAll(".case-carousel-slide");
+  var prevBtn = root.querySelector("[data-carousel-prev]");
+  var nextBtn = root.querySelector("[data-carousel-next]");
+  var dotsWrap = root.querySelector("[data-carousel-dots]");
+  var index = 0;
+
+  slides.forEach(function (_, i) {
+    var dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "case-carousel-dot";
+    dot.setAttribute("aria-label", "Go to slide " + (i + 1));
+    dot.addEventListener("click", function () { goTo(i); });
+    dotsWrap.appendChild(dot);
+  });
+  var dots = dotsWrap.querySelectorAll(".case-carousel-dot");
+
+  track.style.width = (slides.length * 100) + "%";
+  slides.forEach(function (slide) {
+    slide.style.width = (100 / slides.length) + "%";
+  });
+
+  function update() {
+    track.style.transform = "translateX(-" + (index * (100 / slides.length)) + "%)";
+    dots.forEach(function (d, i) {
+      d.classList.toggle("is-active", i === index);
+    });
+  }
+
+  function goTo(i) {
+    index = (i + slides.length) % slides.length;
+    update();
+  }
+
+  prevBtn.addEventListener("click", function () { goTo(index - 1); });
+  nextBtn.addEventListener("click", function () { goTo(index + 1); });
+
+  update();
+})();
+</script>
+
+</body>
+</html>

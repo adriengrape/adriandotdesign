@@ -384,6 +384,11 @@ a.site-title,
   letter-spacing: 0.08em;
   padding: var(--space-sm) var(--space-lg);
   border: var(--rule-thick) solid var(--color-ink);
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-tap-highlight-color: transparent;
   transition: background-color var(--dur-fast) var(--ease-out),
               color var(--dur-fast) var(--ease-out);
 }
@@ -506,6 +511,58 @@ a.site-title,
   display: block;
   width: 100%;
   height: auto;
+}
+
+.aiga-preview-card {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  border: var(--rule-thick) solid var(--color-ink);
+  overflow: hidden;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+
+.aiga-preview-card:hover,
+.aiga-preview-card:focus-visible {
+  opacity: 0.85;
+}
+
+.aiga-preview-media {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.aiga-preview-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-top: var(--rule-thick) solid var(--color-ink);
+}
+
+.aiga-quotes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+}
+
+.aiga-quotes img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .aiga-quotes {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ---------- Case carousel ---------- */
@@ -918,8 +975,8 @@ a.site-title,
 }
 
 .gate-logo {
-  height: 48px;
-  width: auto;
+  width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -939,14 +996,23 @@ a.site-title,
   color: var(--color-ink-soft);
 }
 
+.gate-input-row {
+  display: flex;
+  gap: var(--space-sm);
+}
+
 .gate-input {
-  width: 100%;
+  flex: 1;
+  min-width: 0;
   font-family: var(--font-body);
   font-size: var(--text-md);
   padding: var(--space-sm) var(--space-md);
   border: var(--rule-thick) solid var(--color-ink);
+  -webkit-appearance: none;
+  appearance: none;
   background: var(--color-paper);
   color: var(--color-ink);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .gate-input:focus-visible {
@@ -962,6 +1028,16 @@ a.site-title,
 }
 
 .gate-submit {
-  align-self: flex-start;
-  margin-top: var(--space-xs);
+  flex: none;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .gate-input-row {
+    flex-direction: column;
+  }
+
+  .gate-submit {
+    width: 100%;
+  }
 }
