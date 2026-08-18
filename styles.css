@@ -30,6 +30,8 @@ body {
   background: var(--color-paper);
   line-height: 1.4;
   cursor: url("public/cursor-dot.svg") 16 16, auto;
+  transition: background-color var(--dur-med) var(--ease-out),
+              color var(--dur-med) var(--ease-out);
 }
 
 a:hover,
@@ -85,6 +87,16 @@ a.site-title,
   display: block;
   height: 44px;
   width: auto;
+}
+
+.site-logo {
+  display: block;
+  height: 44px;
+  aspect-ratio: 66 / 27;
+  background-color: var(--color-ink);
+  -webkit-mask: var(--logo-src) no-repeat center / contain;
+  mask: var(--logo-src) no-repeat center / contain;
+  transition: background-color var(--dur-med) var(--ease-out);
 }
 
 .site-footer .site-title {
@@ -154,12 +166,12 @@ a.site-title,
 
 .nav-link:hover:not(.is-active) {
   background-color: var(--color-accent);
-  color: var(--color-ink);
+  color: var(--color-accent-ink);
 }
 
 .nav-link.is-active {
-  background-color: var(--color-accent);
-  color: var(--color-ink);
+  background-color: var(--color-ink);
+  color: var(--color-paper);
   font-weight: 700;
 }
 
@@ -229,9 +241,58 @@ html.menu-open .mobile-menu {
 }
 
 .mobile-nav-link.is-active {
-  background-color: var(--color-accent);
-  color: var(--color-ink);
+  background-color: var(--color-ink);
+  color: var(--color-paper);
   font-weight: 700;
+}
+
+/* ---------- Theme toggle ---------- */
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2xs) var(--space-sm);
+  margin: 0 calc(var(--space-sm) * -1) 0 0;
+  background: transparent;
+  border: none;
+  color: var(--color-ink);
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out);
+}
+
+.theme-toggle:hover {
+  background-color: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+
+.theme-toggle svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+.theme-toggle svg.theme-toggle-sun {
+  display: none;
+}
+
+.theme-toggle[aria-pressed="true"] svg.theme-toggle-sun {
+  display: block;
+}
+
+.theme-toggle[aria-pressed="true"] svg.theme-toggle-moon {
+  display: none;
+}
+
+.mobile-menu .theme-toggle {
+  margin: 0;
+  padding: var(--space-xs) var(--space-md);
+}
+
+.mobile-menu .theme-toggle svg {
+  width: 24px;
+  height: 24px;
 }
 
 /* ---------- Hero ---------- */
@@ -294,6 +355,7 @@ html.menu-open .mobile-menu {
 
 .tab-btn:hover:not(.is-active) {
   background: var(--color-accent);
+  color: var(--color-accent-ink);
 }
 
 .tab-btn.is-active {
@@ -439,6 +501,7 @@ html.menu-open .mobile-menu {
 .text-link:hover,
 .text-link:focus-visible {
   background-color: var(--color-accent);
+  color: var(--color-accent-ink);
 }
 
 .about-resume-btn {
@@ -467,8 +530,9 @@ html.menu-open .mobile-menu {
 
 .btn-brutal:hover,
 .btn-brutal:focus-visible {
-  background-color: var(--color-ink);
-  color: var(--color-paper);
+  background-color: var(--color-accent);
+  border-color: transparent;
+  color: var(--color-accent-ink);
 }
 
 /* ---------- Case study template ---------- */
@@ -677,6 +741,7 @@ html.menu-open .mobile-menu {
   font-size: var(--text-md);
   background: transparent;
   border: var(--rule-hairline) solid var(--color-ink);
+  color: var(--color-ink);
   padding: var(--space-xs) var(--space-md);
   cursor: pointer;
   transition: background-color var(--dur-fast) var(--ease-out),
@@ -685,8 +750,9 @@ html.menu-open .mobile-menu {
 
 .case-carousel-btn:hover,
 .case-carousel-btn:focus-visible {
-  background: var(--color-ink);
-  color: var(--color-paper);
+  background: var(--color-accent);
+  border-color: transparent;
+  color: var(--color-accent-ink);
 }
 
 .case-carousel-dots {
@@ -818,6 +884,20 @@ html.menu-open .mobile-menu {
 .work-item a:hover .work-index-number,
 .work-item a:focus-visible .work-index-number {
   color: var(--color-accent);
+}
+
+/* The hover bar behind the number is light in dark mode (var(--color-ink) is
+   now beige), so keep the number a fixed dark color there for legibility. */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .work-item a:hover .work-index-number,
+  html:not([data-theme="light"]) .work-item a:focus-visible .work-index-number {
+    color: oklch(12% 0 0);
+  }
+}
+
+html[data-theme="dark"] .work-item a:hover .work-index-number,
+html[data-theme="dark"] .work-item a:focus-visible .work-index-number {
+  color: oklch(12% 0 0);
 }
 
 .work-index-title {
@@ -1016,8 +1096,11 @@ html.menu-open .mobile-menu {
 
 .gate-logo {
   width: 100%;
-  height: auto;
+  aspect-ratio: 120 / 49;
   display: block;
+  background-color: var(--color-ink);
+  -webkit-mask: var(--logo-src) no-repeat center / contain;
+  mask: var(--logo-src) no-repeat center / contain;
 }
 
 .gate-form {
